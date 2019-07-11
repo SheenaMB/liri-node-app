@@ -7,23 +7,22 @@ var spotify = new Spotify(keys.spotify);
 var fs = require("fs");
 
 
-var artist = process.argv.slice(3).join("+");
-var song = process.argv.slice(3).join("+");
+var parameter = process.argv.slice(3).join("+");
 var action = process.argv[2];
-var movieName = process.argv.slice(3).join("+");
+
 
 function Liri() {
     switch (action) {
         case "concert-this":
-            concertThis(artist);
+            concertThis(parameter);
             break;
 
         case "spotify-this-song":
-            spotifyThis(song);
+            spotifyThis(parameter);
             break;
 
         case "movie-this":
-            movieThis(movieName);
+            movieThis(parameter);
             break;
 
         case "do-what-it-says":
@@ -34,7 +33,7 @@ function Liri() {
 Liri();
 
 function concertThis(artist) {
-    
+
     var queryUrl = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=" + keys.spotify.id;
 
     //get the queryUrl to see what date you need from the JSON
@@ -138,32 +137,31 @@ function movieThis(movieName) {
 }
 
 function doWhatItSays() {
+
     fs.readFile("random.txt", "utf8", function (error, data) {
         if (error) {
             return console.log(error);
         }
-        // We will then print the contents of data
-        console.log(data);
-
-        // Then split it by commas (to make it more readable)
-        var dataArr = data.split(",");
-
-        // We will then re-display the content as an array for later use.
         
+        var dataArr = data.split(",");
+        console.log(dataArr);
         action = dataArr[0];
+        parameter = dataArr[1];
 
-        if (action = "concert-this"){
-            artist = dataArr[1];
-        }
-        else if (action = "spotify-this-song"){
-            song = dataArr[1];
-        }
-        else (action = "movie-this"){
-            movieName = dataArr[1];
-        }
+        // else if (action) === "concert-this") {
+        //     artist = dataArr[1];
+        //     Liri();
+        // }
+        // else if (action === "spotify-this-song") {
+        //     song = dataArr[1];
+        //     console.log(song);
+        //     Liri();
+        // }
+        // else (action === "movie-this"); {
+        //     movieName = dataArr[1];
+        //     Liri();
+        // }
         Liri();
-    
-
     });
 
 }
