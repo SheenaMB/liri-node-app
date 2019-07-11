@@ -18,4 +18,20 @@ For each command, there is a default if no search item is input.
 
 When "node liri.js do-what-it-says" is run in the command line, it will go into the random.txt file and follow the listed function and parameter.
 
+Here are links to the working Liri app:
+https://www.dropbox.com/s/gwit13hxc4cmdns/Liri%20ScreenRecording1.mov?dl=0
+
+https://www.dropbox.com/s/qlzo8cv6fd7d5e4/Liri%20default%20settings1.mov?dl=0 
+
+
+If you'd like to work on LIRI, you need to install the following packages:
+    - JSON packages
+    - axios 
+    - omdb api
+    - dotenv    
+    - moment
+    - node spotify api
+
+You will also need to get your personal Spotify API throught their developer API site.
+
 Enjoy!
