@@ -6,6 +6,8 @@ var Spotify = require("node-spotify-api")
 var spotify = new Spotify(keys.spotify);
 var fs = require("fs");
 
+
+var artist = process.argv.slice(3).join("+");
 var song = process.argv.slice(3).join("+");
 var action = process.argv[2];
 var movieName = process.argv.slice(3).join("+");
@@ -13,7 +15,7 @@ var movieName = process.argv.slice(3).join("+");
 function Liri() {
     switch (action) {
         case "concert-this":
-            concertThis();
+            concertThis(artist);
             break;
 
         case "spotify-this-song":
@@ -31,9 +33,8 @@ function Liri() {
 }
 Liri();
 
-function concertThis() {
-    var artist = process.argv.slice(3).join("+");
-
+function concertThis(artist) {
+    
     var queryUrl = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=" + keys.spotify.id;
 
     //get the queryUrl to see what date you need from the JSON
@@ -141,7 +142,6 @@ function doWhatItSays() {
         if (error) {
             return console.log(error);
         }
-
         // We will then print the contents of data
         console.log(data);
 
@@ -149,8 +149,18 @@ function doWhatItSays() {
         var dataArr = data.split(",");
 
         // We will then re-display the content as an array for later use.
+        
         action = dataArr[0];
-        song = dataArr[1];
+
+        if (action = "concert-this"){
+            artist = dataArr[1];
+        }
+        else if (action = "spotify-this-song"){
+            song = dataArr[1];
+        }
+        else (action = "movie-this"){
+            movieName = dataArr[1];
+        }
         Liri();
     
 
