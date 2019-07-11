@@ -142,35 +142,14 @@ function doWhatItSays() {
         if (error) {
             return console.log(error);
         }
-        
+
         var dataArr = data.split(",");
         console.log(dataArr);
+
         action = dataArr[0];
         parameter = dataArr[1];
 
-        // else if (action) === "concert-this") {
-        //     artist = dataArr[1];
-        //     Liri();
-        // }
-        // else if (action === "spotify-this-song") {
-        //     song = dataArr[1];
-        //     console.log(song);
-        //     Liri();
-        // }
-        // else (action === "movie-this"); {
-        //     movieName = dataArr[1];
-        //     Liri();
-        // }
         Liri();
     });
 
 }
-
-
-
-//this works:
-//     console.log("--------New Input---------")
-//     console.log("Song name: " + data.tracks.items[i].name);
-//     console.log("Link to song: " + data.tracks.items[i].album.external_urls.spotify);
-//     console.log("Artists name: " + data.tracks.items[i].album.artists[0].name);
-//     console.log("Album name: " + data.tracks.items[i].album.name);
