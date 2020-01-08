@@ -41,12 +41,12 @@ https://www.dropbox.com/s/qlzo8cv6fd7d5e4/Liri%20default%20settings1.mov?dl=0
 ## Dependencies
 If you'd like to work on LIRI, you need to install the following packages:
 
-    * JSON packages
-    * axios 
-    * omdb api
-    * dotenv    
-    * moment
-    * node spotify api
+    - JSON packages
+    - axios 
+    - omdb api
+    - dotenv    
+    - moment
+    - node spotify api
 
 You will also need to get your personal Spotify API throught their developer API site.
 
